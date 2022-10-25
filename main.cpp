@@ -103,5 +103,22 @@ string readFileIntoString(string filename) {
 int main() {
     string str = readFileIntoString("C:\\Users\\Mr.SupX\\Desktop\\Software Engineering\\test.cpp");
 
+    vector<string> ans = dealWithString(str);
+    // if - else & if -elseif -else
+    vector<int> answer = find_if_else(ans);
+    // switch-case
+    vector<int> answer_switch = findSwitch(ans);
+    //
+    smatch result;
+    regex pattern("void|signed|unsigned|short|long|int|float|double|char|enum|struct|union|typedef|Bool|Imaginary|Complex|const|volatile|restrict|inline|auto|static|extern|register|sizeof|goto|return|break|continue|if|else|switch|case|default|do\\s|while|for");
+    string::const_iterator iterStart = str.begin();
+    string::const_iterator iterEnd = str.end();
+    string temp;
+    int count = 0;
+    while (regex_search(iterStart, iterEnd, result, pattern))
+    {
+        count ++;
+        iterStart = result[0].second;
+    }
     return 0;
 }
