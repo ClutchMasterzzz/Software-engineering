@@ -16,6 +16,34 @@ int find_SubString(string s,string sub){
     }
     return cnt;
 }
+vector<int> find_if_else(vector<string> v){
+    stack<bool> mystack;
+    vector<int> answer;
+    int v1 = 0,v2 = 0;
+    int size = 0;
+    for(int i=0;i<v.size();i++){
+        string strS = v[i];
+        if(strS.find("else if") == strS.npos && strS.find("if") != strS.npos){
+            mystack.push(false);
+            size ++;
+            continue;
+        }else if(strS.find("else if") != strS.npos && mystack.empty() != true){
+            mystack.top() = true;
+            continue;
+        }else if(strS.find("else if") == strS.npos && strS.find("else") != strS.npos){
+            if(mystack.top() == true){
+                v2 ++;
+            }else{
+                v1 ++;
+            }
+            mystack.pop();
+            continue;
+        }
+    }
+    answer.push_back(v1);
+    answer.push_back(v2);
+    return answer;
+}
 string readFileIntoString(string filename) {
     ifstream ifile(filename);
     ostringstream buf;
