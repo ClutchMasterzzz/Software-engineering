@@ -101,6 +101,7 @@ string readFileIntoString(string filename) {
 }
 
 int main() {
+    // add file path to the address please.
     string address = "C:\\Users\\Mr.SupX\\Desktop\\Software Engineering\\test.cpp";
     string str = readFileIntoString(address);
     vector<string> ans = dealWithString(str);
