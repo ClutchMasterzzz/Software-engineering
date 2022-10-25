@@ -120,5 +120,13 @@ int main() {
         count ++;
         iterStart = result[0].second;
     }
+    cout << "total num: " << count << endl;
+    cout << "switch num: " << answer_switch.size() << endl;
+    cout << "case num: ";
+    for(int i=0;i<answer_switch.size();i++){
+        cout << answer_switch[i] << " ";
+    }cout << endl;
+    cout << "if-else num: " << answer[0] << endl;
+    cout << "if-elseif-else num:" << answer[1] << endl;
     return 0;
 }
