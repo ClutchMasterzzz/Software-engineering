@@ -16,6 +16,20 @@ int find_SubString(string s,string sub){
     }
     return cnt;
 }
+vector<string> dealWithString(string str){
+    vector<string> v;
+    string sub = "";
+    for(int i=0;i<str.length();i++){
+        if(str[i] == '\n'){
+            sub += str[i];
+            v.push_back(sub);
+            sub = "";
+        }else{
+            sub += str[i];
+        }
+    }
+    return v;
+}
 vector<int> find_if_else(vector<string> v){
     stack<bool> mystack;
     vector<int> answer;
