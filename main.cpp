@@ -7,6 +7,15 @@
 #include <vector>
 #include <map>
 using namespace std;
+int find_SubString(string s,string sub){
+    int idx = 0;
+    int cnt = 0;
+    while((idx = s.find(sub,idx)) != s.npos){
+        idx++;
+        cnt++;
+    }
+    return cnt;
+}
 string readFileIntoString(string filename) {
     ifstream ifile(filename);
     ostringstream buf;
