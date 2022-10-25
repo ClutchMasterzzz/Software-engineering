@@ -16,6 +16,37 @@ int find_SubString(string s,string sub){
     }
     return cnt;
 }
+vector<int> findSwitch(vector<string> v1){
+    vector<int> answer;
+    stack<char> myStack;
+    bool judge = false;
+    int count = 0;
+    for(int i=0;i<v1.size();i++){
+        string strS = v1[i];
+        if(strS.find("switch") != strS.npos){
+            judge = true;
+        }
+        if(judge){
+            if(strS.find('{') != strS.npos){
+                myStack.push('{');
+            }else if(strS.find('}') != strS.npos){
+                myStack.pop();
+            }
+        }
+        if(myStack.empty() != true){
+            if(strS.find("case") != strS.npos){
+                count ++;
+            }
+        }else{
+            judge = false;
+            if(count != 0){
+                answer.push_back(count);
+                count = 0;
+            }
+        }
+    }
+    return answer;
+}
 vector<string> dealWithString(string str){
     vector<string> v;
     string sub = "";
