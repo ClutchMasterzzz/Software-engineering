@@ -101,8 +101,8 @@ string readFileIntoString(string filename) {
 }
 
 int main() {
-    string str = readFileIntoString("C:\\Users\\Mr.SupX\\Desktop\\Software Engineering\\test.cpp");
-
+    string address = "C:\\Users\\Mr.SupX\\Desktop\\Software Engineering\\test.cpp";
+    string str = readFileIntoString(address);
     vector<string> ans = dealWithString(str);
     // if - else & if -elseif -else
     vector<int> answer = find_if_else(ans);
